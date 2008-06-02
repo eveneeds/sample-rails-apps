@@ -4,7 +4,7 @@ class PostsController < ApplicationController
     session[:last_page] = @posts.current_page
 
     respond_to do |format|
-      format.html { }# index.html.erb
+      format.html # index.html.erb
       format.js { render :template => 'posts/index.html.erb' }
     end
   end

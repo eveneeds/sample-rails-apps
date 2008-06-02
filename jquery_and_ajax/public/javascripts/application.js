@@ -21,7 +21,7 @@ $.fn.railsLoad = function(location){
 // All will_paginate entities in the DOM gets ajaxified with livequery (http://ozmm.org/posts/ajax_will_paginate_jq_style.html)
 $(function(){
   $('div.pagination a').livequery('click', function() {
-    $('#main').railsLoad(this.href)
+    $('#main').railsLoad(this.href);
     return false;
   });
 })

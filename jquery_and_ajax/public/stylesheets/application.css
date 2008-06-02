@@ -4,6 +4,15 @@ body{
   background:#efefef;
 }
 
+a{
+  color:#369;
+  text-decoration:none;
+}
+
+a:hover{
+  text-decoration:underline;
+}
+
 #main{
   width:700px;
   background:#fff;

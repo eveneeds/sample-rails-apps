@@ -7,7 +7,7 @@ class PostsControllerTest < ActionController::TestCase
   end
   
   def test_successfull_show
-    post = posts(:horses)
+    post = posts(:jquery)
     get :show, :id => post.to_param
     
     assert_response :success

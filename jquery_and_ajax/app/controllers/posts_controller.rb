@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
   def index
-    @posts = Post.find_for_index.paginate :page => params[:page], :per_page => 5
+    @posts = Post.find_for_index.paginate :page => params[:page], :per_page => 4
     #raise request.headers.inspect
     respond_to do |format|
       format.html { }# index.html.erb

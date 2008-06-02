@@ -4,7 +4,6 @@ jquery:
   body: Read more about jQuery at http://www.jquery.com.
   created_at: <%= Time.now %>
   updated_at: <%= Time.now %>
-  
 
 lorem:
   title: Lorem ipsum
@@ -47,3 +46,57 @@ nullam:
   body: Suspendisse a arcu nec odio volutpat accumsan.
   created_at: <%= 16.days.ago %>
   updated_at: <%= 16.days.ago %>
+  
+quisque:
+  title: Quisque vehicula mauris in tortor.
+  excerpt: Curabitur varius, odio sit amet interdum auctor, tellus enim consectetuer metus, et placerat nunc velit a purus. 
+  body: Vivamus nunc libero, malesuada vel, semper id, mattis sit amet, felis.
+  created_at: <%= 17.days.ago %>
+  created_at: <%= 17.days.ago %>
+  
+donic:
+  title: Donec sit amet velit non ipsum fringilla tincidunt. 
+  excerpt: Nam consequat. Fusce vel sem eu orci posuere varius. Ut in ligula vestibulum massa fermentum dictum. 
+  body: Mauris nisi mi, rutrum vel, ornare sit amet, blandit ut, metus.
+  
+curabitur:
+  title: Curabitur sit amet mi eu erat fermentum eleifend.
+  excerpt: Suspendisse potenti. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. 
+  body: Suspendisse eget massa.
+  created_at: <%= 19.days.ago %>
+  updated_at: <%= 19.days.ago %>
+  
+ut:
+  title: Ut commodo laoreet massa. 
+  excerpt: Phasellus urna mi, dignissim vel, luctus ac, convallis quis, urna. 
+  body: Curabitur et ligula a mi auctor accumsan.
+  created_at: <%= 22.days.ago %>
+  updated_at: <%= 22.days.ago %>
+  
+duis:
+  title: Duis non libero sed nulla dapibus vulputate.
+  excerpt: Cras non eros vel nibh hendrerit lacinia. Sed gravida feugiat justo.
+  body: Suspendisse faucibus nulla quis mi.
+  created_at: <%= 26.days.ago %>
+  updated_at: <%= 26.days.ago %>
+
+praesent:
+  title: Praesent aliquet. Phasellus a eros.
+  excerpt: Sed accumsan mi eget ante. Quisque vitae elit eu augue condimentum porta.
+  body: Cras commodo tellus id turpis.
+  created_at: <%= 28.days.ago %>
+  updated_at: <%= 28.days.ago %>
+  
+donec:
+  title: Donec condimentum nisl id nisi. 
+  excerpt: Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nam rutrum.
+  body: Quisque nunc dui, porttitor vitae, consequat vitae, porttitor sed, lectus.
+  created_at: <%= 29.days.ago %>
+  updated_at: <%= 29.days.ago %>
+  
+placerat:
+  title: Donec placerat, turpis sit amet fringilla aliquam, erat lorem rutrum nisl, vel condimentum enim diam in massa.
+  excerpt: Suspendisse potenti. Cras eget neque in neque adipiscing porta. Vestibulum adipiscing mi quis ante. Cras tincidunt.
+  body: Aliquam blandit eros eget massa.
+  created_at: <%= 30.days.ago %>
+  updated_at: <%= 30.days.ago %>

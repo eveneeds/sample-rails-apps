@@ -4,12 +4,13 @@ class PostsController < ApplicationController
     session[:last_page] = @posts.current_page
 
     respond_to do |format|
-      format.html # index.html.erb
-      format.js { render :template => 'posts/index.html.erb' }
+      format.html # index.erb
+      format.js # index.erb
     end
   end
   
   def show
     @post = Post.find(params[:id])
+    @comment = @post.comments.new
   end
 end

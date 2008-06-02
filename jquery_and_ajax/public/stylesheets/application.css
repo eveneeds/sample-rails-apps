@@ -20,7 +20,27 @@ a:hover{
   padding:1em;
 }
 
-/* pagination */
+/* Comment entry */
+
+#new_comment textarea{
+  width:99%;
+  height:100px;
+}
+
+/* Forms */
+
+#errorExplanation{
+  margin:1em 0;
+  background:pink;
+}
+
+#errorExplanation,
+.fieldWithErrors input,
+.fieldWithErrors textarea{
+  border:2px solid red;
+}
+
+/* Pagination */
 
 .pagination{
   text-align:center;

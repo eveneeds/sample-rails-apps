@@ -2,4 +2,30 @@
 <p><strong><%= @post.excerpt %></strong></p>
 <p><%= @post.body %></p>
 
-<p><%= link_to 'Back', posts_path(:page => session[:last_page]) %></p>
+<p><%= link_to '&laquo; Back', posts_path(:page => session[:last_page]) %></p>
+
+
+<h2 name='comments'>Comments</h2>
+
+<div id="comment_list">
+  <%= render :partial => 'comments/comment', :collection => @post.comments %>
+</div>
+
+<% form_for([@post, @comment]) do |f| %>
+  <%= error_messages_for :comment, :header_message => nil, :message => nil %>
+  
+  <p>Name: <br/>
+  <%= f.text_field :name %></p>
+  
+  <p>Email: <br/>
+  <%= f.text_field :email %></p>
+  
+  <p>Url: <br/>
+  <%= f.text_field :url %></p>
+  
+  <p>Text: <br/>
+  <%= f.text_area :text %></p>
+  
+  <%= submit_tag 'Preview', :name => 'preview' %>
+  <%= submit_tag 'Add comment' %>
+<% end %>

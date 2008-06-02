@@ -1,0 +1,2 @@
+page['#new_comment'].clearForm
+page['#comment_list'].append render(:partial => 'comment', :object => @comment)

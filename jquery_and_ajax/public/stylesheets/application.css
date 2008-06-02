@@ -1,0 +1,38 @@
+body{
+  font-family: Arial, Verdana, Sans-serif;
+  font-size:13px;
+  background:#efefef;
+}
+
+#main{
+  width:700px;
+  background:#fff;
+  border:2px solid #ccc;
+  padding:1em;
+}
+
+/* pagination */
+
+.pagination{
+  text-align:center;
+  color:#ccc;
+  font-weight:bold;
+}
+
+.pagination span,
+.pagination a{
+  padding:.2em .5em;
+}
+
+.pagination a{
+  color:#000;
+  text-decoration:none;
+}
+
+.pagination a:hover{
+  background:#efefef;
+}
+
+.pagination .current{
+  color:red;
+}

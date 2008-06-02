@@ -38,6 +38,8 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :posts do |post|
     post.resources :comments
   end
+  
+  map.root :posts
 
   # Install the default routes as the lowest priority.
   # No, we don't.

@@ -1,7 +1,49 @@
-# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+jquery:
+  title: jQuery - a great javascript framework
+  excerpt: jQuery is a javascript framework, much like Rails' own Prototype framework. It makes unobtrusiveness easy, and has many best practices for how to keep your javascript code clean.
+  body: Read more about jQuery at http://www.jquery.com.
+  created_at: <%= Time.now %>
+  updated_at: <%= Time.now %>
+  
 
-# one:
-#   column: value
-#
-# two:
-#   column: value
+lorem:
+  title: Lorem ipsum
+  excerpt: Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Vestibulum dictum nunc nec purus. 
+  body: Donec mattis lacus eget est pretium suscipit. Nam hendrerit laoreet nibh. Donec eget erat. Integer consequat vestibulum leo. Integer bibendum vestibulum metus. Nam consequat interdum nunc. 
+  created_at: <%= 1.day.ago %>
+  updated_at: <%= 1.day.ago %>
+  
+vivamus:
+  title: Vivamus ac sem. 
+  excerpt: Fusce lacinia iaculis velit. Vivamus ut augue quis lacus euismod facilisis.
+  body: Nullam convallis, enim nec adipiscing dictum, sem erat convallis nunc, non egestas dolor sapien eu eros. Ut est ante, vulputate sit amet, tempor sed, ornare eu, ante. Mauris at quam. Nulla facilisi. Pellentesque pellentesque adipiscing pede. Praesent ornare. Etiam pellentesque viverra nisi. Maecenas non leo ut orci pulvinar tincidunt.
+  created_at: <%= 3.days.ago %>
+  updated_at: <%= 3.days.ago %>
+  
+phasellus:
+  title: Phasellus accumsan nunc a pede. 
+  excerpt: Nunc varius, est nec iaculis convallis, ipsum nisl eleifend arcu, eget mattis ante elit eget metus. 
+  body: Cras sem sapien, fermentum eu, vestibulum nec, viverra vitae, nibh. Ut porta est in purus. Aenean ac eros sit amet orci tristique sollicitudin. Nulla sed velit.
+  created_at: <%= 8.days.ago %>
+  updated_at: <%= 8.days.ago %>
+  
+duis:
+  title: Duis eleifend sodales mauris. 
+  excerpt: Donec placerat scelerisque purus. Pellentesque quis erat. Suspendisse sem. 
+  body: Suspendisse potenti. Curabitur fermentum dolor a purus. Pellentesque orci massa, consectetuer non, pellentesque non, pulvinar in, nisl. Quisque feugiat nunc ac turpis.
+  created_at: <%= 12.days.ago %>
+  updated_at: <%= 12.days.ago %>
+
+sed:
+  title: Sed tortor orci, sodales at, ullamcorper ut, dictum vel, nisi.
+  excerpt: Pellentesque consequat elit ut turpis hendrerit volutpat. Fusce scelerisque mattis sapien.
+  body:  Quisque ut ipsum dictum lorem laoreet aliquet. Phasellus tempus orci. Sed vitae mi. Aliquam mauris tellus, condimentum nec, semper quis, iaculis ac, felis. Aliquam aliquet risus in ante. Duis non enim. Etiam id lacus ut lorem fermentum tempor. In hac habitasse platea dictumst.
+  created_at: <%= 13.days.ago %>
+  updated_at: <%= 13.days.ago %>
+  
+nullam:
+  title: Nullam ac metus sed mi vestibulum condimentum.
+  excerpt: Sed nibh tellus, mollis eu, varius in, vulputate ut, felis.  Pellentesque vestibulum velit in ligula. Praesent et ante. Nullam blandit, massa sed varius tempus, metus neque condimentum erat, quis tristique dui nulla vel mi.
+  body: Suspendisse a arcu nec odio volutpat accumsan.
+  created_at: <%= 16.days.ago %>
+  updated_at: <%= 16.days.ago %>

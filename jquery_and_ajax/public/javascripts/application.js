@@ -28,5 +28,8 @@ $(function(){
   });
   
   // Ajaxifying the comment entry form. We need dataType: script for jQuery to eval the returned js.
-  $('#new_comment').ajaxForm({dataType: 'script'});
+  //$('#new_comment').ajaxForm({dataType: 'script'});
+  $('#new_comment').livequery(function(){
+    $(this).ajaxForm({dataType: 'script'});
+  });
 })

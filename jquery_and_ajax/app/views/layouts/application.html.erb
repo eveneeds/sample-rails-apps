@@ -6,8 +6,11 @@
         <%= javascript_include_tag 'http://ajax.googleapis.com/ajax/libs/jquery/1.2.6/jquery.min.js', 'jquery.livequery.js', 'jquery.form.js', 'application' %>
     </head>
     <body>
-      <div id="main">
-        <%= yield %>
+      <div id="wrapper">
+        <div id="flash_success" class="flash"><%= flash[:success] %></div>
+        <div id="main">
+          <%= yield %>
+        </div>
       </div>
     </body>
 </html>

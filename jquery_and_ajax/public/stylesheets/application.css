@@ -13,14 +13,14 @@ a:hover{
   text-decoration:underline;
 }
 
-#main{
+#wrapper{
   width:700px;
   background:#fff;
   border:2px solid #ccc;
   padding:1em;
 }
 
-/* Comment entry */
+/* Comments */
 
 #new_comment textarea{
   width:99%;
@@ -30,22 +30,61 @@ a:hover{
 #comment_preview{
   background:#ccc;
   border:2px solid #999;
-  padding:1em;
+  padding:0 1em;
   display:none;
+}
+
+#comment_list .comment{
+  background:#f7f7f7;
+  border-bottom:1px solid #efefef;
+  margin-bottom:1em;
+  padding:0.1em 0.5em;
+}
+
+#comment_list .comment .byline{
+  text-align:right;
+  font-style:italic;
+  font-size:.9em;
+  color:#999;
+}
+
+#comment_list .comment .byline a{
+  font-weight:bold;
+}
+
+/* Flashes and errors*/
+
+.flash {
+  clear: both;
+  padding: 5px 5px 5px 20px;
+  margin-bottom: 20px;
+  border-top:1px solid #ccc;
+  border-bottom:1px solid #ccc;
+  display:none;
+}
+
+#flash_success{
+  color: #588e03;
+  background: #e9fad9;
+  border-color: #588e03; 
+}
+
+.fieldWithErrors input,
+.fieldWithErrors textarea{
+  color: #c30000;
+  background: #f2dcdc;
+  border-color: #c30000;
+}
+
+#errorExplanation{
+  margin:1em 0;
+  padding:.7em;
+  background:pink;
 }
 
 /* Forms */
 
-#errorExplanation{
-  margin:1em 0;
-  background:pink;
-}
 
-#errorExplanation,
-.fieldWithErrors input,
-.fieldWithErrors textarea{
-  border:2px solid red;
-}
 
 /* Pagination */
 

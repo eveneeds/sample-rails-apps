@@ -1,3 +1,4 @@
-<p>By <%= link_to_unless(comment.url.blank?, comment.name_or_anon, comment.url_with_http) %></p>
-
-<%= comment.text %>
+<div class="comment">
+  <p><%= h comment.text %></p>
+  <p class="byline">By <%= link_to_unless(comment.url.blank?, h(comment.name_or_anon), h(comment.url_with_http)) %></p>
+</div>

@@ -1,3 +1,12 @@
-page['#comment_preview'].hide
-page['#new_comment'].clearForm
-page['#comment_list'].append render(:partial => 'comment', :object => @comment)
+if @comment.valid?
+  page['#flash_success'].html 'Successfully saved comment'
+  page['#comment_preview'].hide
+  page['#new_comment'].clearForm
+  page['#comment_list'].append render(:partial => 'comment', :object => @comment)
+  
+  # Resetting the @comment object when rendering the form
+  @comment = @post.comments.new
+end
+
+page['#new_comment'].replaceWith render(:partial => 'form')
+

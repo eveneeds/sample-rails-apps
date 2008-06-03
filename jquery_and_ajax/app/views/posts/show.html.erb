@@ -11,6 +11,9 @@
   <%= render :partial => 'comments/comment', :collection => @post.comments %>
 </div>
 
+<div id="comment_preview">
+</div>
+
 <% form_for([@post, @comment]) do |f| %>
   <%= error_messages_for :comment, :header_message => nil, :message => nil %>
   

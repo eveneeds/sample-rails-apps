@@ -4,7 +4,10 @@ class CommentsController < ApplicationController
     @comment = @post.comments.new(params[:comment])
     
     if params[:preview]
-      render :action => 'show'
+      respond_to do |format|
+        format.html { render :action => 'show' }
+        format.js { render :action => 'preview' }
+      end
     else
       respond_to do |format|
         if @comment.save

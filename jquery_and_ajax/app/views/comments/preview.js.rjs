@@ -1,0 +1,2 @@
+page['#comment_preview'].show
+page['#comment_preview'].html render(:partial => 'comment', :object => @comment)

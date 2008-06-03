@@ -27,6 +27,13 @@ a:hover{
   height:100px;
 }
 
+#comment_preview{
+  background:#ccc;
+  border:2px solid #999;
+  padding:1em;
+  display:none;
+}
+
 /* Forms */
 
 #errorExplanation{

@@ -14,8 +14,15 @@ class TextileCloth < RedCloth
       page = $~[1]
       database_page = Page.identify(page)
 
-      link = database_page ? edit_page.call(database_page) : new_page + "?title=#{CGI.escape(page)}"
-      "<a href='#{link}'>#{page}</a>"
+      if database_page
+        link = edit_page.call(database_page)
+        klass = 'existing_page'
+      else
+        link = new_page + "?title=#{CGI.escape(page)}"
+        klass = 'new_page'
+      end
+      
+      "<a href='#{link}' class='#{klass}'>#{page}</a>"
     end
   end
 end

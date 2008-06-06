@@ -3,6 +3,12 @@ body{
   font-size:13px;
 }
 
+/* Wiki content */
+
+a.new_page{
+  color:#bb0000;
+}
+
 /* Errors and validations */
 
 .errorExplanation{

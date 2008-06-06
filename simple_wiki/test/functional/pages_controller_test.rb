@@ -18,9 +18,24 @@ class PagesControllerTest < ActionController::TestCase
     assert_response :success
   end
   
+  def test_new
+    get :new
+    assert_response :success
+  end
+  
   def test_edit
     get :edit, :id => pages(:rails).to_param
     assert_response :success
+  end
+  
+  def test_successful_create
+    post :create, :page => {:title => "New page", :content => "Yep!"}
+    assert_redirected_to page_path(assigns(:page))
+  end
+  
+  def test_failed_create
+    post :create, :page => {}
+    assert_template 'pages/new'
   end
   
   def test_successful_update

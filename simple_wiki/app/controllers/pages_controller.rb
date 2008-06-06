@@ -19,6 +19,12 @@ class PagesController < ApplicationController
   def edit
     @page = Page.find(params[:id])
   end
+  
+  def create
+    @page = Page.new(params[:page])
+    @page.save!
+    redirect_to page_path(@page)
+  end
 
   def update
     @page = Page.find(params[:id])

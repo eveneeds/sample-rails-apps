@@ -19,7 +19,7 @@ class Page < ActiveRecord::Base
   end
   
   def self.identify(identifier)
-    find_by_title(CGI.escape(identifier))
+    find_by_title(identifier)
   end
   
   private

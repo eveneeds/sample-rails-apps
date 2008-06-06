@@ -15,6 +15,28 @@ class PageTest < ActiveSupport::TestCase
     assert_equal old_title, @page.latest_revision.title
   end
   
+  def test_latest_revision
+    assert !@page.latest_revision
+    
+    old_title = @page.title.dup
+    @page.update_attributes :title => "Changed"
+    assert_equal old_title, @page.latest_revision.title
+    
+    @page.update_attributes :title => 'Another change'
+    assert_equal 'Changed', @page.latest_revision.title
+  end
+  
+  def test_revision_numbers
+    @page.update_attributes :title => "Changed"
+    assert_equal 1, @page.latest_revision.number
+    
+    @page.update_attributes :title => "Changed again"
+    assert_equal 2, @page.latest_revision.number
+    
+    5.times {|i| @page.update_attributes :title => "Update #{i}" }
+    assert_equal 7, @page.latest_revision.number
+  end
+  
   def test_not_creating_revision_if_told_to_skip
     @page.skip_revision = true
     

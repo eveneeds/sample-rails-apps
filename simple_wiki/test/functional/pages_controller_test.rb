@@ -13,6 +13,11 @@ class PagesControllerTest < ActionController::TestCase
     assert_template 'no_page'
   end
   
+  def test_history
+    get :history, :id => pages(:rails).to_param
+    assert_response :success
+  end
+  
   def test_edit
     get :edit, :id => pages(:rails).to_param
     assert_response :success
@@ -26,7 +31,7 @@ class PagesControllerTest < ActionController::TestCase
   end
   
   def test_failed_update
-    post :update, :id => pages(:rails).to_param, :page => {:message => nil, :title => 'Changed'}
+    post :update, :id => pages(:rails).to_param, :page => {:title => nil}
     assert_template 'pages/edit'
   end
 end

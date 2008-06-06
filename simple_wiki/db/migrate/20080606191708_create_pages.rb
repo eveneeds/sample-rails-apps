@@ -12,6 +12,7 @@ class CreatePages < ActiveRecord::Migration
     add_column :pages, :updated_by, :integer
     add_column :revisions, :page_id, :integer
     add_column :revisions, :message, :string
+    add_column :revisions, :number, :integer
   end
 
   def self.down

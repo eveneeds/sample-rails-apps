@@ -35,7 +35,9 @@ ActionController::Routing::Routes.draw do |map|
 
   # See how all your routes lay out with "rake routes"
 
-  map.resources :pages
+  map.resources :pages, :member => {:history => :get} do |page|
+    page.resources :revisions
+  end
   map.root :pages
 
   # Install the default routes as the lowest priority.

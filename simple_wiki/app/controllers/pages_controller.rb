@@ -8,6 +8,10 @@ class PagesController < ApplicationController
     @page = Page.find(params[:id])
   end
   
+  def history
+    @page = Page.find(params[:id])
+  end
+  
   def edit
     @page = Page.find(params[:id])
   end

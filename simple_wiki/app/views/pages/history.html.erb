@@ -1,0 +1,12 @@
+<h1>History for "<%= h @page.title %>"</h1>
+
+<ul>
+    <li><%= link_to @page.created_at.to_s(:short), page_path(@page) %> <small>Current</small></li>
+  <% @page.revisions.each do |revision| %>
+    <li>
+      <%= link_to revision.created_at.to_s(:short), page_revision_path(@page, revision) %>
+      <small><%= revision.number %></small>
+      <em><%= h revision.message %></em>
+    </li>
+  <% end %>
+</ul>

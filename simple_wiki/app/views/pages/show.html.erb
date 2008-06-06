@@ -2,4 +2,7 @@
 
 <%= textilize @page.content %>
 
-<p><%= link_to "Edit", edit_page_path(@page) %></p>
+<ul>
+  <li><%= link_to "Edit", edit_page_path(@page) %></li>
+  <li><%= link_to 'History', history_page_path(@page) %></li>
+</ul>

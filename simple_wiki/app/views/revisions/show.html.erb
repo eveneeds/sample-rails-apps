@@ -1,0 +1,9 @@
+<h1><%= @revision.title %></h1>
+
+<ul>
+  <li>Revision <%= @revision.number %></li>
+  <li><%= link_to 'Back to original', page_path(@page) %></li>
+  <li><%= link_to 'Back to history', history_page_path(@page) %></li>
+</ul>
+
+<%= textilize @revision.content %>

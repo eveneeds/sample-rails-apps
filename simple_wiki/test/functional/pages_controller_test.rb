@@ -12,4 +12,21 @@ class PagesControllerTest < ActionController::TestCase
     get :index
     assert_template 'no_page'
   end
+  
+  def test_edit
+    get :edit, :id => pages(:rails).to_param
+    assert_response :success
+  end
+  
+  def test_successful_update
+    new_title = 'New title it has!'
+    post :update, :id => pages(:rails).to_param, :page => {:message => 'Yeah', :title => new_title}
+    assert_equal new_title, assigns(:page).title
+    assert_redirected_to page_path(pages(:rails).to_param)
+  end
+  
+  def test_failed_update
+    post :update, :id => pages(:rails).to_param, :page => {:message => nil, :title => 'Changed'}
+    assert_template 'pages/edit'
+  end
 end

@@ -1,0 +1,13 @@
+<% form_for(@page) do |f| %>
+  <%= render :partial => 'form', :object => f %>
+  
+  <p>
+    Message (small description of your changes)
+    <br/>
+    <%= f.text_field :message %>
+    <br/>
+    <small>Don't create a revision</small><%= f.check_box :skip_revision %>
+  </p>
+  
+  <%= submit_tag "Update" %>
+<% end %>

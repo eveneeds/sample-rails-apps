@@ -12,4 +12,12 @@ class ApplicationController < ActionController::Base
   # Uncomment this to filter the contents of submitted sensitive data parameters
   # from your application log (in this case, all fields with names like "password"). 
   # filter_parameter_logging :password
+  
+  rescue_from ActiveRecord::RecordInvalid, :with => :handle_invalid_record
+  
+  private
+  
+  def handle_invalid_record(exception)
+    render :action => (exception.record.new_record? ? 'new' : 'edit')
+  end
 end

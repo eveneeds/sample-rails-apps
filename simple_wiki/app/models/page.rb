@@ -1,11 +1,15 @@
 class Page < ActiveRecord::Base
-  has_many :revisions, :order => 'created_at DESC'
+  has_many :revisions, :order => 'created_at DESC', :dependent => :destroy
   
   attr_accessor :skip_revision, :message
   after_update :create_revision
   
   def latest_revision
     revisions.find(:first)
+  end
+  
+  def self.home
+    find(:first)
   end
   
   private

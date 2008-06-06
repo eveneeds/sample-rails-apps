@@ -15,7 +15,11 @@ class Page < ActiveRecord::Base
   private
   
   def create_revision
-    return if skip_revision == true
+    return if skip_revision?
     revisions.create! :title => title_was, :content => content_was, :created_by => updated_by_was, :message => message
+  end
+  
+  def skip_revision?
+    skip_revision == true || !changed?
   end
 end

@@ -22,4 +22,10 @@ class PageTest < ActiveSupport::TestCase
       @page.update_attributes(:title => "New title")
     end
   end
+  
+  def test_not_creating_revisions_if_no_changes_were_made
+    assert_no_difference('@page.revisions.count') do
+      5.times { @page.save }
+    end
+  end
 end

@@ -18,6 +18,10 @@ class Page < ActiveRecord::Base
     revision ? instance.revisions.find_by_number(revision) : instance
   end
   
+  def self.identify(identifier)
+    find_by_title(CGI.escape(identifier))
+  end
+  
   private
   
   def create_revision

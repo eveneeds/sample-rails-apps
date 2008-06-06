@@ -1,3 +1,13 @@
 rails:
   title: Rails
-  content: This is a page about Ruby on Rails!
+  content: |
+    This is a page about "Ruby on Rails":http://www.rubyonrails.org.
+    
+    Here's another page: [Other page]
+  
+other:
+  title: Other page
+  content: |
+    This is another *page*.
+    
+    Read about [Rails] here.

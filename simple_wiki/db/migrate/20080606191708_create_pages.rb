@@ -1,6 +1,6 @@
 class CreatePages < ActiveRecord::Migration
   def self.up
-    [:pages, :page_revisions].each do |table|
+    [:pages, :revisions].each do |table|
       create_table table do |t|
         t.string :title
         t.text :content
@@ -10,10 +10,11 @@ class CreatePages < ActiveRecord::Migration
     end
     
     add_column :pages, :updated_by, :integer
-    add_column :page_revisions, :page_id, :integer
+    add_column :revisions, :page_id, :integer
+    add_column :revisions, :message, :string
   end
 
   def self.down
-    [:pages, :page_revisions].each {|table| drop_table table }
+    [:pages, :revisions].each {|table| drop_table table }
   end
 end

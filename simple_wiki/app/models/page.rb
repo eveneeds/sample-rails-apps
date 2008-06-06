@@ -1,5 +1,6 @@
 class Page < ActiveRecord::Base
   has_many :revisions, :order => 'created_at DESC', :dependent => :destroy
+  validates_presence_of :title, :content
   
   attr_accessor :skip_revision, :message
   after_update :create_revision

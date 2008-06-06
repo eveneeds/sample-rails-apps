@@ -9,5 +9,5 @@
     <small>Don't create a revision</small><%= f.check_box :skip_revision %>
   </p>
   
-  <%= submit_tag "Update" %>
+  <%= submit_tag "Update" %> or <%= link_to 'cancel', page_path(@page) %>
 <% end %>

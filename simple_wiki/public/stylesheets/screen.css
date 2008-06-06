@@ -1,0 +1,17 @@
+body{
+  font-family: Arial, Verdana, Sans-serif;
+  font-size:13px;
+}
+
+/* Errors and validations */
+
+.errorExplanation{
+  border:2px solid red;
+  background:pink;
+  padding:1em;
+}
+
+.fieldWithErrors input,
+.fieldWithErrors textarea{
+  border:2px solid red;
+}

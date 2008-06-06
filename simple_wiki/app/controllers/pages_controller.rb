@@ -11,7 +11,6 @@ class PagesController < ApplicationController
   def edit
     @page = Page.find(params[:id])
   end
-  
 
   def update
     @page = Page.find(params[:id])

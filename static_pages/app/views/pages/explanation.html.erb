@@ -1,0 +1,14 @@
+<h1>Explanation</h1>
+
+<p>Our <code>routes.rb</code> has the following entries:</p>
+
+<pre>
+map.page ':action', :controller => 'pages'
+map.root :controller => 'pages'  
+</pre>
+
+<p>This gives us a <code>page_path</code> method we can use to create a link to one of the pages in <code>PagesController</code>. The content of a page is stored in <code>app/views/pages/[name_of_page].html.erb</code>, and is automatically mapped by <code>ActionView</code> - you don't need to define all the actions in the controller, all you need is the view.</p>
+
+<p>Obviously, these pages won't be editable by an admin interface, as the contents are stored in app/views, not in the database.</p>
+
+<p>Back to <%= link_to 'index', page_path('index') %></p>

@@ -1,3 +1,4 @@
+# Subclassing RedCloth and extending it with a parser for page links.
 class TextileCloth < RedCloth
   attr_accessor :new_page, :edit_page
   

@@ -1,7 +1,5 @@
 # Global settings
 
-Run rake app:install to bootstrap some sample data into the app.
-
 This app has a global settings file, config/settings.yml. This file can be used to store app-global settings, such as API keys (spam systems, google analytics etc.), system-wide messages (expected downtime, announcements etc.), and so on.
 
 # Files of interest

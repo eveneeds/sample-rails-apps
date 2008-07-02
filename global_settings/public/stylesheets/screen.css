@@ -1,0 +1,13 @@
+body{
+  font-family: Arial, Verdana, Sans-serif;
+  font-size:13px;
+}
+
+#system_message{
+  background: #ffc;
+	border-bottom: 2px solid #fc0;
+	text-align:center;
+	color:#f90;
+	font-size:130%;
+	padding:1em;
+}

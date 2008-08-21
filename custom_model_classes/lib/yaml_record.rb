@@ -67,6 +67,18 @@ class YamlRecord
   
   private
   
+  # Create one instance of the model per record in the YAML file.
+  def self.find_all
+    data.map {|result| new(result, nil) }
+  end
+  
+  # Creates one instance of the model for the record representing the passed id (or nil if nothing
+  # was found)
+  def self.find_one(id)
+    result = data.find {|d| d['id'] == id.to_i }
+    result ? new(result, nil) : nil
+  end
+  
   def define_getters_and_setters
     self.class.attributes.each do |attribute|
       define_method(attribute) { @params[attribute] }
@@ -83,18 +95,6 @@ class YamlRecord
   # Returns the parameters with a newly assigned id to it (used for record creation)
   def add_id_to_params
     @params.merge!(:id => self.class.data.size + 1)
-  end
-  
-  # Create one instance of the model per record in the YAML file.
-  def self.find_all
-    data.map {|result| new(result, nil) }
-  end
-  
-  # Creates one instance of the model for the record representing the passed id (or nil if nothing
-  # was found)
-  def self.find_one(id)
-    result = data.find {|d| d['id'] == id.to_i }
-    result ? new(result, nil) : nil
   end
 
   # Gets the data as a hash.

@@ -2,7 +2,7 @@ class YamlRecord
   cattr_accessor :attributes
   
   def initialize(params = nil)
-    @params = params || default_params
+    @params = params || empty_params
     @new_record = true
   end
   
@@ -74,7 +74,7 @@ class YamlRecord
   
   # When new is called without any parameters, we have to set the defaults. If the attributes are
   # 'title' and 'body', it will return {'title' => '', 'body' => ''}.
-  def default_params
+  def empty_params
     self.class.attributes.inject({}) {|hash, attribute| hash.merge(attribute => "") }
   end
   

@@ -79,7 +79,7 @@ class YamlRecord
   
   # Create one instance of the model per record in the YAML file.
   def self.find_all
-    data.map {|d| new_as_existing_record(d) }
+    data.map {|result| new_as_existing_record(result) }
   end
   
   # Creates one instance of the model for the record representing the passed id (or nil if nothing

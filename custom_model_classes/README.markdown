@@ -1,6 +1,6 @@
 # Custom model classes
 
-Use a class other than ActiveRecord as your model backend. You can adapt this system to use text files, csv files, or anything you can parse, as your data storage.
+Use a class other than ActiveRecord as your model backend. This particular system, YamlRecord, stores stuff as YAML in db/[model name].yml. You can adapt this system to use text files, csv files - basically anything you can parse - as your data storage.
 
 # TODO when running the app
 

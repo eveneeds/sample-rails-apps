@@ -2,6 +2,10 @@
 
 Use a class other than ActiveRecord as your model backend. You can adapt this system to use text files, csv files, or anything you can parse, as your data storage.
 
+# TODO when running the app
+
+* Rename or move db/posts_sample.yml to db/posts.yml
+
 # Files of interest
 
 * lib/yaml_record.rb

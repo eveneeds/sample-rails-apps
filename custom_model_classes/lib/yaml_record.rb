@@ -30,9 +30,6 @@ class YamlRecord
     # No longer a new record
     @new_record = false
     
-    # Reload the data
-    self.class.reload_data!
-    
     # Everything succeeded, return true.
     true
   end
@@ -46,9 +43,6 @@ class YamlRecord
     
     # Inject the new data into the YAML file.
     File.open(self.class.path_to_data, 'w' ) { |out| YAML.dump(self.class.data, out) }
-    
-    # Reload the data
-    self.class.reload_data!
     
     # Everything succeeded, return true
     true
@@ -97,13 +91,7 @@ class YamlRecord
 
   # Gets the data as a hash.
   def self.data
-    @data ||= YAML.load_file(path_to_data)
-  end
-  
-  # Reloads the data.
-  def self.reload_data!
-    @data = nil
-    data
+    YAML.load_file(path_to_data)
   end
   
   def self.path_to_data

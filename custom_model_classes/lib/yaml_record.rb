@@ -4,6 +4,7 @@ class YamlRecord
   def initialize(params = nil, new_record = true)
     @params = params || empty_params
     @new_record = new_record
+    define_getters_and_setters
   end
   
   # Used by form_for to determine if it should point to the create or the update action.
@@ -66,6 +67,13 @@ class YamlRecord
   
   private
   
+  def define_getters_and_setters
+    self.class.attributes.each do |attribute|
+      define_method(attribute) { @params[attribute] }
+      define_method("#{attribute}=") {|value| @params[attribute] = value }
+    end
+  end
+  
   # When new is called without any parameters, we have to set the defaults. If the attributes are
   # 'title' and 'body', it will return {'title' => '', 'body' => ''}.
   def empty_params
@@ -104,11 +112,4 @@ class YamlRecord
     instance.instance_eval { @new_record = nil }
     instance
   end
-  
-  # Makes it possible to call Post#title, instead of Post#params['title']. Also returns nil if
-  # the attribute is a valid attribute.
-  def method_missing(method, *args, &block)
-    @params[method] || super
-  end
-
 end

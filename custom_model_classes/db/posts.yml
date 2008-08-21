@@ -1,0 +1,16 @@
+--- 
+- !map:HashWithIndifferentAccess 
+  body: This is the body text
+  title: This is a post
+  id: 1
+- !map:HashWithIndifferentAccess 
+  body: |-
+    This is a multiline body text.
+    
+    Here's the second line for ya.
+  title: Yet another post
+  id: 2
+- !map:HashWithIndifferentAccess 
+  body: Now with a body. Changed.
+  title: A new post..
+  id: 3

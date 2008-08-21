@@ -1,9 +1,9 @@
 class YamlRecord
   cattr_accessor :attributes
   
-  def initialize(params = nil)
+  def initialize(params = nil, new_record = true)
     @params = params || empty_params
-    @new_record = true
+    @new_record = new_record
   end
   
   # Used by form_for to determine if it should point to the create or the update action.
@@ -37,7 +37,7 @@ class YamlRecord
   def update_attributes(params)
     # Remove the old record from the data
     self.class.data.delete_if {|d| d['id'] == id }
-    
+        
     # Re-add the updated data
     self.class.data << params.merge('id' => id)
     
@@ -79,19 +79,19 @@ class YamlRecord
   
   # Create one instance of the model per record in the YAML file.
   def self.find_all
-    data.map {|result| new_as_existing_record(result) }
+    data.map {|result| new(result, nil) }
   end
   
   # Creates one instance of the model for the record representing the passed id (or nil if nothing
   # was found)
   def self.find_one(id)
     result = data.find {|d| d['id'] == id.to_i }
-    result ? new_as_existing_record(result) : nil
+    result ? new(result, nil) : nil
   end
 
   # Gets the data as a hash.
   def self.data
-    YAML.load_file(path_to_data)
+    @data ||= YAML.load_file(path_to_data)
   end
   
   def self.path_to_data

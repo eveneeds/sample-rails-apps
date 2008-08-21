@@ -1,4 +1,6 @@
 class YamlRecord
+  # Every YamlRecord model is required to set it's attributes manually, with this accessor. See line 2 in
+  # the Post model.
   cattr_accessor :attributes
   
   def initialize(params = nil, new_record = true)
@@ -54,6 +56,7 @@ class YamlRecord
     @params['id']
   end
   
+  # Pass :all or 1 or "1" to find a record.
   def self.find(parameter)
     case parameter
     when :all
@@ -79,6 +82,8 @@ class YamlRecord
     result ? new(result, nil) : nil
   end
   
+  # Defines the attributes specified in the 'attributes' class accessor as getter and setter
+  # methods.
   def define_getters_and_setters
     self.class.attributes.each do |attribute|
       define_method(attribute) { @params[attribute] }
@@ -92,7 +97,7 @@ class YamlRecord
     self.class.attributes.inject({}) {|hash, attribute| hash.merge(attribute => "") }
   end
   
-  # Returns the parameters with a newly assigned id to it (used for record creation)
+  # Returns the parameters with a newly assigned auto incremented id (used for record creation).
   def add_id_to_params
     @params.merge!(:id => self.class.data.size + 1)
   end
@@ -103,13 +108,6 @@ class YamlRecord
   end
   
   def self.path_to_data
-    @path_to_data ||= File.join(Rails.root, 'db', "#{self.to_s.tableize}.yml")
-  end
-  
-  # Creates a instance with @new_record as nil.
-  def self.new_as_existing_record(params)
-    instance = new(params)
-    instance.instance_eval { @new_record = nil }
-    instance
+    File.join(Rails.root, 'db', "#{self.to_s.tableize}.yml")
   end
 end

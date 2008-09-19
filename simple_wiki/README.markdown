@@ -1,4 +1,4 @@
-# jQuery and Ajax examples
+# Simple Wiki
 
 Run rake app:install to bootstrap some sample data into the app.
 

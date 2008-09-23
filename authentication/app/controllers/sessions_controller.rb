@@ -11,6 +11,7 @@ class SessionsController < ApplicationController
     if logged_in?
       redirect_to root_path
     else
+      flash.now[:error] = "Username/password mismatch."
       render :action => 'new'
     end
   end

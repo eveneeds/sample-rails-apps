@@ -42,6 +42,18 @@ class UserTest < ActiveSupport::TestCase
     assert !User.authenticate('noway', 'odd')
   end
   
+  def test_not_setting_the_password_on_existing_record
+    user = users(:leethal)
+    user.password = nil
+    assert user.valid?
+    
+    user.password = ""
+    assert user.valid?
+    
+    user.password = "fo" # too short
+    assert !user.valid?
+  end
+  
   private
   
   def new_user

@@ -2,7 +2,7 @@ require 'digest/sha1'
 class User < ActiveRecord::Base
   # It is important that the salt is secret. Generate your own with `rake secret`.
   SALT = "a6ab20a65296b2db942944ef7820e1bc74cabb96"
-  validates_length_of :password, :minimum => 4
+  validates_length_of :password, :minimum => 4, :if => :password_required?
   before_save :encrypt_password
   attr_accessor :password
   

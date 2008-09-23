@@ -19,8 +19,11 @@ class ApplicationController < ActionController::Base
   helper_method :current_user
   
   def current_user=(user)
-    set_to = user.is_a?(User) ? user.id : nil
-    session[:user] = set_to
-    @current_user = set_to
+    if user.is_a?(User)
+      session[:user] = user.id
+      @current_user = user
+    else
+      session[:user] = @current_user = nil
+    end
   end
 end

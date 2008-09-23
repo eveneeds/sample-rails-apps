@@ -11,6 +11,9 @@ class SessionsControllerTest < ActionController::TestCase
     post :create, :username => 'leethal', :password => '12345'
     assert_redirected_to root_path
     assert @controller.logged_in?
+    
+    assert_equal users(:leethal).id, @request.session[:user]
+    assert @controller.current_user.is_a?(User)
   end
   
   def test_failed_login

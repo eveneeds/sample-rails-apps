@@ -1,10 +1,10 @@
 class YamlRecord
   # Every YamlRecord model is required to set it's attributes manually, with this accessor. See line 2 in
-  # the Post model.
+  # the Post model in app/models.
   cattr_accessor :attributes
   
   def initialize(params = nil, new_record = true)
-    @params = params || empty_params
+    @params = params || default_params
     @new_record = new_record
     define_getters_and_setters
   end
@@ -14,17 +14,17 @@ class YamlRecord
     @new_record || false
   end
   
-  # Used with url_for (which is what link_to uses to generate urls) to determine the parameter
-  # to assume params[:id] points to.
+  # url_for (which is what link_to uses to generate urls) calls to_param in order to determine
+  # the url when you do url_for(some_instance) (rather than url_for(some_instance.id))
   def to_param
     id
   end
   
   def save
     # Add an id to the params hash
-    add_id_to_params
+    assign_primary_key!
     
-    # Generate an array with the old data and the new data.
+    # Merge the new data into the existing data.
     new_data = self.class.data << @params
     
     # Inject the new data into the YAML file.
@@ -38,20 +38,19 @@ class YamlRecord
   end
   
   def update_attributes(params)
-    # Remove the old record from the data
+    # Remove the old record
     self.class.data.delete_if {|d| d['id'] == id }
         
-    # Re-add the updated data
+    # Add the new, updated record
     self.class.data << params.merge('id' => id)
     
-    # Inject the new data into the YAML file.
+    # Inject the updated data into the YAML file.
     File.open(self.class.path_to_data, 'w' ) { |out| YAML.dump(self.class.data, out) }
     
     # Everything succeeded, return true
     true
   end
   
-  # Defining the ID method, if not we'll get Ruby's object_id.
   def id
     @params['id']
   end
@@ -70,20 +69,18 @@ class YamlRecord
   
   private
   
-  # Create one instance of the model per record in the YAML file.
+  # An array of instances.
   def self.find_all
     data.map {|result| new(result, nil) }
   end
   
-  # Creates one instance of the model for the record representing the passed id (or nil if nothing
-  # was found)
+  # Returns an instance or, nil if nothing was found
   def self.find_one(id)
     result = data.find {|d| d['id'] == id.to_i }
     result ? new(result, nil) : nil
   end
   
-  # Defines the attributes specified in the 'attributes' class accessor as getter and setter
-  # methods.
+  # Defines the accessor methods for the data.
   def define_getters_and_setters
     self.class.attributes.each do |attribute|
       define_method(attribute) { @params[attribute] }
@@ -93,16 +90,16 @@ class YamlRecord
   
   # When new is called without any parameters, we have to set the defaults. If the attributes are
   # 'title' and 'body', it will return {'title' => '', 'body' => ''}.
-  def empty_params
+  def default_params
     self.class.attributes.inject({}) {|hash, attribute| hash.merge(attribute => "") }
   end
   
   # Returns the parameters with a newly assigned auto incremented id (used for record creation).
-  def add_id_to_params
+  def assign_primary_key!
     @params.merge!(:id => self.class.data.size + 1)
   end
 
-  # Gets the data as a hash.
+  # Loads the YAML file as a hash
   def self.data
     @data ||= YAML.load_file(path_to_data)
   end

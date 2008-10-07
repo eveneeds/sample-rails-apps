@@ -2,6 +2,9 @@ require 'digest/sha1'
 class User < ActiveRecord::Base
   validates_length_of :password, :minimum => 4, :if => :password_required?
   before_save :encrypt_password
+  
+  # Virtual attribute for storing the plain-text password before it's encrypted
+  # in the 'password_hash' column in the db.
   attr_accessor :password
   
   # Returns a User if the username and password matches, nil if not.

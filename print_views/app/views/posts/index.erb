@@ -1,0 +1,6 @@
+<% @posts.each do |post| %>
+    <h2><%= link_to post.title, post_path(post) %></h2>
+    <%= textilize post.excerpt %>
+    
+    <p class="small">Posted <%= post.created_at.strftime("%A, %m.%d.%Y") %></p>
+<% end %>

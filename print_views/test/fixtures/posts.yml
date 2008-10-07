@@ -1,0 +1,23 @@
+one:
+  title: The Print Views apps is now live on github!
+  excerpt: This app explains how you can implement print views in your Rails apps. It will use a separate layout for the print views, giving you full control on which stylesheets to include etc.
+  body: |
+    It uses the mime type functionality in Rails. /posts gives you the 'regular' HTML view, and /posts.print gives you the print view. It's that simple.
+    
+    The app is available in "the sample rails apps repository on GitHub":http://github.com/leethal/sample-rails-apps/tree.
+  created_at: <%= 4.hours.ago.to_s(:db) %>
+  
+two:
+  title: Rails doesn't scale
+  excerpt: Twitter is evidence. Rails just does not scale.
+  body: |
+    Except that it does, you bitch. The platform is only one measure of scalability. The experience of the developers, the server stack and what not are also key factors in scaling web apps.
+    
+    Now, go troll elsewhere.
+  created_at: <%= 2.days.ago.to_s(:db) %>
+    
+three:
+  title: New blog!
+  excerpt: Welcome to my new blog! It's grey, and it has print views.
+  body: And here's some more text, in case you decided you wanted to read the whole post.
+  created_at: <%= 5.days.ago.to_s(:db) %>

@@ -1,0 +1,7 @@
+<h1><%= @post.title %></h1>
+
+<p><%= link_to "&laquo; Back", posts_path %></p>
+
+<span class="large"><%= textilize @post.excerpt %></span>
+
+<%= textilize @post.body %>

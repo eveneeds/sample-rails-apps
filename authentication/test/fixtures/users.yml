@@ -1,3 +1,4 @@
 leethal:
   username: leethal
-  password_hash: "4d7d8510d51c32e625a461e82af948a7cb8f6e6d" # 12345
+  password_hash: "c15d622cef109b295d4d70ccf58e71c2f476e2f7" # 12345
+  password_salt: "171b68372b55cac9ea8d69cd65eb2957ec6e4b49"
